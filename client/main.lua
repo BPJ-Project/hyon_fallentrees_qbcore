@@ -52,11 +52,11 @@ function DrawText3D(x, y, z, text, font, color, scale)
 end
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
 
      while true do
 
-     Citizen.Wait(1)
+     Wait(1)
        local ped = PlayerPedId()
 	local playerPed = PlayerPedId()
 	local pedWeapon = GetSelectedPedWeapon(ped)
@@ -94,11 +94,11 @@ end
 end
 end)
 
-Citizen.CreateThread(function() 
+CreateThread(function() 
     while true do
 
 				TriggerServerEvent("hyon_fallentree:get_tree")
-				Citizen.Wait(1000)
+				Wait(1000)
 	end
 end)
 
@@ -109,7 +109,7 @@ AddEventHandler("hyon_fallentree:create_tree", function(tree)
 	ClientTrees[k] = {}
 	ClientTrees[k] = {coords = v.coords, spawn = v.spawn, heading = v.heading}
 	end
-	Citizen.Wait(1000)
+	Wait(1000)
 end)
 
 
@@ -132,10 +132,10 @@ function DrawText3Ds(x,y,z, text)
 end
 
 function Stonesmining(ClientTrees, i)
-    Citizen.CreateThread(function()
+    CreateThread(function()
         local impacts = 0
         while impacts < 3 do
-            Citizen.Wait(0)
+            Wait(0)
 		    local ped = PlayerPedId()
             local plyCoords = GetEntityCoords(ped)
 			local animDict = "melee@hatchet@streamed_core"
@@ -151,8 +151,7 @@ function Stonesmining(ClientTrees, i)
 			FreezeEntityPosition(ped, true)
             LoadDict('melee@hatchet@streamed_core')
 			TaskPlayAnim(ped, animDict, animName, 3.0, 3.0, -1, 2, 0, 0, 0, 0 )
-            Citizen.Wait(3000)
-            Citizen.Wait(1500)
+            Wait(4500)
             ClearPedTasks(ped)
 			FreezeEntityPosition(ped, false)
             impacts = impacts+1
@@ -169,14 +168,14 @@ end
 function LoadDict(dict)
     RequestAnimDict(dict)
 	while not HasAnimDictLoaded(dict) do
-	  	Citizen.Wait(10)
+	  	Wait(10)
     end
 end
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
 while true do
-	Citizen.Wait(500)
+	Wait(500)
 	local PlayerData = QBCore.Functions.GetPlayerData(PlayerData)
 	if Config.treeblip == true then
 		for i, locations in pairs(ClientTrees) do
