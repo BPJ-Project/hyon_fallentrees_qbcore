@@ -34,7 +34,7 @@ AddEventHandler('hyon_fallentree:get_tree', function()
 	TriggerClientEvent("hyon_fallentree:create_tree", -1, trees)
     end)
 
-Citizen.CreateThread(function() 
+CreateThread(function() 
     while true do
 				if #trees ~= #Config.Trees then
 				for k,v in pairs(Config.Trees) do
@@ -42,11 +42,11 @@ Citizen.CreateThread(function()
 				trees[k] = {coords = v.coords, spawn = 0, heading = v.heading}
 				end
 				end
-				Citizen.Wait(1000)
+				Wait(1000)
 	end
 end)
  
-Citizen.CreateThread(function() 
+CreateThread(function() 
     while true do
 	Time = math.random(mintime, maxtime)
 	randomamount = math.random(Config.treespawn_min, Config.treespawn_max)
@@ -61,7 +61,7 @@ Citizen.CreateThread(function()
 				i = i-1
 				end
 		end	
-		Citizen.Wait(Time)
+		Wait(Time)
 	end
 end) 
 
