@@ -9,7 +9,7 @@ Config.Commandspawn = "spawnfallentrees" -- Spawn all Fallen Trees
 
 Config.Commanddel = "delfallentrees" -- Delete all Fallen Trees
 
-Config.treeblip = true  -- true/false/"onlyjobs"
+Config.treeblip = false  -- true/false/"onlyjobs"
 
 Config.treeblipjobs = { -- Blips show only jobs
 	"police",
@@ -20,11 +20,11 @@ Config.axe1 = "WEAPON_BATTLEAXE"
 
 Config.axe2 = "WEAPON_HATCHET"
 
-Config.reward = "item" -- Get reward "money"/"item"/false (If "money you will get money, if "item" you will get random item from Config.Lootitem, if false you will get nothing,)
+Config.reward = "false" -- Get reward "money"/"item"/false (If "money you will get money, if "item" you will get random item from Config.Lootitem, if false you will get nothing,)
 
-Config.reward_min = 500 -- Reward random minimum money ( If Config.reward = "money")
+Config.reward_min = 10 -- Reward random minimum money ( If Config.reward = "money")
 
-Config.reward_max = 1000 -- Reward random maximum money
+Config.reward_max = 50 -- Reward random maximum money
 
 Config.Lootitem = {   --Random get loot from these items. (If Config.reward = "item")
 			{
